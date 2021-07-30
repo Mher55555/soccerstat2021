@@ -1,0 +1,733 @@
+@import 'palette.scss';
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600&subset=latin-ext');
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+  width: 0 !important;
+}
+
+// semantic ui overrides
+.ui.image {
+  max-width: unset;
+}
+
+$top-bar-height: 90px;
+
+*:not(.icon) {
+  font-family: Montserrat !important;
+  border-radius: 0 !important;
+}
+
+::selection {
+  color: #fff;
+  background: $yellow;
+}
+
+body {
+  color: $black !important;
+}
+
+#root {
+  display: flex;
+  min-height: 100vh;
+}
+
+.soccer-loader {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  z-index: 1000;
+
+  .loading-text {
+    margin-top: 10px;
+  }
+}
+
+a,
+a:hover {
+  color: $black;
+}
+
+.active.item {
+  color: $black !important;
+  background: $yellow !important;
+}
+
+// Home page fixtures
+.global-fixture-list {
+  padding: 20px;
+}
+
+.team-name--custom {
+  display: none;
+}
+
+.schedule-date-input {
+  background: rgba(0, 0, 0, 0.7);
+  margin-bottom: 20px;
+  padding: 10px;
+  font-size: 1.3em;
+  border-left: 4px solid $yellow;
+}
+
+.competition-fixture-filter-link {
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgb(253, 206, 69);
+  color: rgb(255, 255, 255);
+  margin-right: 10px;
+  cursor: pointer;
+  white-space: nowrap;
+  padding: 5px;
+
+  &--active {
+    background: $yellow;
+    color: $black;
+  }
+}
+
+// Competitions Menu
+.competition-menu-container {
+  display: flex;
+  flex-shrink: 0;
+  flex-basis: 250px;
+  flex-direction: column;
+  background: hsl(205, 52%, 11%);
+  color: #fff;
+  position: fixed;
+  width: 250px;
+  height: 100%;
+  overflow-x: scroll;
+
+  .masthead {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: $top-bar-height;
+    text-transform: uppercase;
+    a {
+      color: #fff;
+    }
+  }
+}
+
+.competition-menu {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.competition-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.competition-menu-bar {
+  // This is done to maximize the click area
+  .item {
+    padding: 0 !important;
+    a {
+      padding: 9px 15px;
+      font-weight: 600;
+    }
+  }
+}
+
+.competition-link {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  color: #fff;
+
+  &:hover,
+  &.active {
+    color: $black;
+    background: $yellow;
+  }
+
+  .competition-logo {
+    width: 42px;
+  }
+}
+
+// Main
+.main-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-height: 100%;
+  background-size: cover;
+  margin-left: 250px;
+  width: 100%;
+  align-items: center;
+
+  .page-container {
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 100%;
+    display: flex;
+    // align-items: center;
+    // justify-content: center;
+  }
+}
+
+.main-container-header {
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  height: $top-bar-height;
+
+  .competition-header {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+
+    .competition-meta {
+      display: flex;
+
+      .meta-item:not(:last-child) {
+        margin-right: 20px;
+      }
+    }
+  }
+}
+
+.page-title {
+  text-align: center;
+  margin-top: 10px !important;
+  margin-bottom: 30px !important;
+}
+
+// Match day controls
+.matchday-controls {
+  display: flex;
+  align-items: center;
+  justify-items: flex-end;
+  justify-content: space-between;
+  margin: 10px 0;
+
+  .label {
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+  }
+
+  h2 {
+    margin: 0 !important;
+  }
+
+  & > span {
+    box-shadow: 0 0 3px #9a9e9a;
+    i.large.icon,
+    i.large.icons {
+      vertical-align: sub;
+    }
+    i.icon {
+      margin: 0;
+    }
+  }
+
+  .matchday-nav-button {
+    background: $gray;
+    padding: 5px 5px;
+    border: 0 none;
+
+    .icon {
+      color: darken($yellow, 10%);
+    }
+
+    &:not(:last-child) {
+      border-right: 1px solid darken($gray, 10%);
+    }
+  }
+}
+
+.header-with-center-text {
+  margin: 40px 0 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    background: white;
+    padding: 0 20px;
+    color: $black;
+  }
+}
+
+@for $i from 1 through 6 {
+  .menu-#{$i}-button {
+    display: flex;
+  }
+
+  .menu-#{$i}-button a {
+    text-align: center;
+    position: relative;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+ul.list-grid {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  justify-content: center;
+
+  li {
+    box-sizing: border-box;
+  }
+}
+
+footer {
+  margin: 10px;
+  a,
+  a:hover {
+    color: white;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+// roster specific styles
+.card-x {
+  margin: 10px;
+  padding: 10px;
+  background: $yellow;
+  width: 530px;
+}
+
+.card-player {
+  background: $gray;
+}
+
+.card-player-body {
+  display: flex;
+
+  h2 {
+    display: flex;
+  }
+  .player-info {
+    margin-left: 40px;
+  }
+}
+
+.player-jersey-number {
+  padding-right: 20px;
+  border-right: solid 2px darken(white, 20%);
+}
+
+.player-name {
+  margin-left: 20px;
+}
+
+.player-info {
+  // display: flex;
+  div {
+    display: flex;
+    span {
+      width: 50%;
+    }
+    span:first-child {
+      text-align: left;
+    }
+    span:last-child {
+      text-align: right;
+    }
+  }
+}
+
+// Standings
+.group-table-container {
+  margin-bottom: 50px;
+}
+
+span.standing-team-name {
+  margin-left: 10px;
+}
+
+// Fixtures
+.fixture-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.match-fixture {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  padding: 10px;
+  justify-content: center;
+  margin-bottom: 90px;
+}
+
+.match-fixture-inner {
+  flex-direction: row;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+
+  .fixture-team,
+  .fixture-status {
+    flex: 1;
+  }
+
+  .team-label--reverse {
+    flex-direction: row-reverse;
+  }
+}
+
+.match-venue-broadcast {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.match-fixture-header {
+  margin-top: 40px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #fdce44;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  width: 50%;
+  text-align: center;
+}
+
+.fixture-team {
+   width: calc(50% - 50px);
+}
+
+.fixture-status-score-live {
+  font-size: 1rem;
+  border: 1px solid $red;
+  padding: 1px 3px;
+}
+
+.fixture-status-score-final {
+  border: 1px solid $yellow;
+  font-size: 1rem;
+  padding: 1px 3px;
+}
+
+.fixture-status {
+  display: flex;
+  align-items: center;
+  min-width: 250px;
+  justify-content: center;
+
+  .fixture-status-time {
+    margin-top: 5px;
+    font-size: 1rem;
+  }
+
+  &.pregame {
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+}
+
+.fixture-status-score {
+  font-size: 2.5rem;
+  margin: 10px 10px;
+  text-align: center;
+}
+
+.team-label {
+  display: flex;
+  align-items: center;
+}
+
+.competition-team-list {
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.card {
+  border: 1px solid $yellow;
+  text-align: center;
+  width: 280px;
+  margin-right: 70px;
+  margin-bottom: 70px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+}
+
+.card-team {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+}
+
+.team-crest-container {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+  padding-top: 30px;
+  width: calc(100% - 40px);
+
+  .team-crest {
+    height: 150px;
+  }
+}
+
+.card-team-body {
+  text-transform: uppercase;
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.team-roster-link {
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid darken($yellow, 10%);
+  padding: 1.075em 1.5em 0.925em;
+  text-transform: uppercase;
+}
+
+/* Awesome effects */
+
+// The parent element needs have position: relative
+.animated-underline-container {
+  position: relative;
+}
+
+.animated-underline:not(.active)::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 4px;
+  background: $yellow;
+  transition: width 0.2s;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.animated-underline:not(.active):hover::after {
+  width: 100%;
+  transition: width 0.2s;
+}
+
+// Media queries
+@media (max-width: 1440px) {
+  .match-fixture-header {
+    width: 75%;
+  }
+  .match-fixture {
+    width: 75%;
+  }
+}
+
+@media (max-width: 1115px) {
+  // Hide masthead and make the menu smaller
+  .masthead {
+    display: none !important;
+  }
+  .competition-header h1 {
+    font-size: 1.2em;
+  }
+  span.competition-name {
+    display: none;
+  }
+  img.competition-logo {
+    width: 52px;
+  }
+  .competition-menu-container {
+    width: auto;
+  }
+  .main-container {
+    margin-left: 52px;
+  }
+  .right.menu {
+    display: none !important;
+  }
+
+  // Teams page
+  .competition-team-list .card {
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
+
+  // Fixtures page
+  .fixture-status {
+    min-width: auto;
+    .fixture-status-score {
+      font-size: 1.9rem;
+      font-weight: 700;
+    }
+  }
+  .match-fixture-header {
+    width: 75%;
+  }
+  .match-fixture {
+    width: 75%;
+  }
+}
+
+@media (max-width: 767px) {
+  #root {
+    flex-direction: column;
+  }
+  .competition-menu-container {
+    width: auto;
+    position: unset;
+    flex-basis: unset;
+
+    .competition-menu {
+      flex-direction: unset;
+    }
+  }
+  .main-container {
+    margin-left: unset;
+    display: unset;
+  }
+  .main-container-header {
+    padding: 10px;
+  }
+  .header-competition-logo {
+    display: none;
+  }
+
+  .match-fixture-header {
+    width: 100%;
+  }
+  .match-fixture {
+    width: 100%;
+  }
+  .matchday-controls {
+    .label {
+      width: 100%;
+      margin-bottom: 40px;
+    }
+    display: unset;
+  }
+
+  // Semantic UI overrides for tables
+  .ui.table:not(.unstackable) {
+    thead {
+      display: table-header-group !important;
+    }
+   
+    tr {
+      display: table-row !important;
+    }
+    tr > th,
+    tr > td {
+      display: table-cell !important;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .main-container-header {
+    background: unset !important;
+    height: unset;
+    flex-direction: column;
+    padding: 10px;
+  }
+  .competition-menu-bar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    &::after {
+      display: none !important;
+    }
+  }
+
+  .competition-team-list {
+    .card {
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+  }
+
+  .fixture-status-score {
+    font-size: 1.2rem;
+  }
+
+  img.standing-team-flag {
+    display: none !important;
+  }
+  span.standing-team-name {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 414px) {
+  .global-fixture-list {
+    padding: 0;
+  }
+  .fixture-status .fixture-status-score {
+    font-size: 1.1em;
+  }
+  .team-name--regular {
+    display: none;
+  }
+  .team-name--custom {
+    display: block;
+  }
+
+  .main-container-header {
+    background: unset !important;
+    border-bottom: unset !important;
+    color: unset !important;
+  }
+}
+
+.DayPickerInput {
+  .DayPickerInput-Overlay {
+    background: $black;
+    color: white;
+  }
+  .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside):hover {
+    background-color: #51a0fa;
+  }
+
+  .DayPicker:not(.DayPicker--interactionDisabled)
+    .DayPicker-Day:not(.DayPicker-Day--disabled):not(.DayPicker-Day--selected):not(.DayPicker-Day--outside):hover {
+    background-color: $blue;
+  }
+  input {
+    background: transparent;
+    color: white;
+    border: 0 none;
+    border-bottom: 1px solid $yellow;
+    width: 100px;
+  }
+  .DayPicker-Footer {
+    text-align: center;
+  }
+  .DayPicker-TodayButton {
+    color: $yellow;
+  }
+  .DayPicker-Day--today {
+    color: $yellow;
+    font-weight: 700;
+    border: 1px solid $yellow;
+  }
+}
